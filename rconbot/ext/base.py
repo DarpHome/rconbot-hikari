@@ -101,7 +101,7 @@ async def on_modal(event: hikari.events.InteractionCreateEvent) -> None:
     except ValueError as exc:
         traceback.print_exception(exc)
         await inter.edit_initial_response("Incorrect password")
-        client._writer.close()
+        await client.close()
         return
     bot.rcons[inter.user.id] = client
     message = await inter.edit_initial_response("Connected. Type commands.")
@@ -125,7 +125,7 @@ async def on_modal(event: hikari.events.InteractionCreateEvent) -> None:
         else:
             await m.message.respond(response.replace(b"\xc2\xa7", b"").decode("utf_8"))
     await inter.edit_initial_response("Terminating connection...")
-    client._writer.close()
+    await client.close()
     del bot.rcons[inter.user.id]
 
 
