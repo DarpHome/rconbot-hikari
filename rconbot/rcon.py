@@ -193,7 +193,6 @@ class RCONClient:
                     f"Invalid response type (expected {PacketType.RESPONSE.value}, got {packet.type})"
                 )
             payload = packet.must_bytes()
-            print(payload)
             result += payload
             if len(payload) < 4096:
                 break
