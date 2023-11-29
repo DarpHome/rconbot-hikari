@@ -130,10 +130,7 @@ async def on_modal(event: hikari.events.InteractionCreateEvent) -> None:
 
 
 @plugin.command
-@lightbulb.option(
-    "port", "RCON server port", type=int, min_value=0, max_value=65535, required=True
-)
-@lightbulb.command("rcon", "Connect RCON")
+@lightbulb.command("disconnect", "Disconnect from RCON")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def disconnect(ctx: lightbulb.SlashContext) -> None:
 
